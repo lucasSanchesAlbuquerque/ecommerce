@@ -80,7 +80,7 @@ public class Order {
         return items;
     }
 
-    public List<Product> getpProducts(){
-        return  items.stream().map(x -> x.getProduct()).toList();
+    public List<Product> getpProducts() {
+        return items.stream().map(x -> x.getProduct()).toList();
     }
 }
