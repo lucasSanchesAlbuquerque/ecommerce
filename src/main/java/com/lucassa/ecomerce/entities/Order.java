@@ -83,7 +83,7 @@ public class Order {
 
     public List<Product> getpProducts() {
         return items.stream().map(x -> x.getProduct()).toList();
-<<<<<<< HEAD
+
     }
 
     @Override
@@ -99,7 +99,6 @@ public class Order {
     @Override
     public int hashCode() {
         return id != null ? id.hashCode() : 0;
-=======
->>>>>>> 77fd345d9f4946f9ac2b9a980b733c0344c69932
+
     }
 }
