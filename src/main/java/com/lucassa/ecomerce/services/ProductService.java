@@ -46,6 +46,18 @@ public class ProductService {
         return new ProductDto(product);
     }
 
+    @Transactional
+    public ProductDto update(Long id, ProductDto dto){
+        Product product = productRepository.getReferenceById(id);
+        product.setName(dto.getName());
+        product.setDescription(dto.getDescription());
+        product.setPrice(dto.getPrice());
+        product.setImgUrl(dto.getImgUrl());
+        product = productRepository.save(product);
+
+        return new ProductDto(product);
+    }
+
 
 
 
