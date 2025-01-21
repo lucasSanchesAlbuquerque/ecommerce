@@ -2,6 +2,7 @@ package com.lucassa.ecomerce.controllers;
 
 import com.lucassa.ecomerce.dto.ProductDto;
 import com.lucassa.ecomerce.services.ProductService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -42,12 +43,15 @@ public class ProductController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<ProductDto>  update(@PathVariable Long id, @RequestBody ProductDto dto){
-        dto = productService.update(id, dto);
-        return ResponseEntity.ok(dto);
+          dto = productService.update(id, dto);
+          return ResponseEntity.ok(dto);
+
     }
 
+
+
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Void>  update(@PathVariable Long id){
+    public ResponseEntity<Void>  delete(@PathVariable Long id){
         productService.delete(id);
         return ResponseEntity.noContent().build();
     }
