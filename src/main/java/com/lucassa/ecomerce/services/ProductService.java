@@ -30,10 +30,11 @@ public class ProductService {
         //return modelMapper.map(product,ProductDto.class);
     }
 
-    public Page<ProductDto> findAll(Pageable pageable){
-        Page<Product> products = productRepository.findAll(pageable);
+    public Page<ProductDto> findAll(String name, Pageable pageable){
+        Page<Product> products = productRepository.searchByName(name,pageable);
         return products.map(x -> new ProductDto(x));
     }
+
 
     @Transactional
     public ProductDto insert(ProductDto dto){
